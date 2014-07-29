@@ -10,3 +10,8 @@
 
 <%= link_to 'My profile', user_path(current_user.id) %>
 <%= link_to 'Organization profile', organization_path(@event.organization.id) %>
+<% if @event.users.include?(current_user) %>
+	<p>you are going</p> 
+<% else %>
+  <%= link_to 'Join', attendance_confirmations_path(params: {user_id: current_user.id, event_id: @event.id}), method: :post %>
+<% end %>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :events, only: [:new, :create]
   end
 
+  resources :attendance_confirmations, only: :create
 
   root "users#show"
   # The priority is based upon order of creation: first created -> highest priority.
