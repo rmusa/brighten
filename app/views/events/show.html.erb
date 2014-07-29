@@ -1,0 +1,12 @@
+<h1>Event home page!</h1>
+
+<table>
+	<tbody>
+	  <tr><td><%= @event.name %></td></tr>
+	  <tr><td><%= @event.location %></td></tr>			  
+	  <tr><td><%= @event.description %></td></tr>
+	</tbody>
+</table>
+
+<%= link_to 'My profile', user_path(current_user.id) %>
+<%= link_to 'Organization profile', organization_path(@event.organization.id) %>

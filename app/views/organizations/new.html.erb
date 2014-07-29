@@ -1,0 +1,39 @@
+<h1>New organization</h1>
+
+<%= form_for(@organization) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+    <div class="field">
+    <%= f.label :picture %><br>
+    <%= f.text_area :organization_picture %>
+  </div>
+    <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_area :phone %>
+  </div>
+    <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_area :email %>
+  </div>
+    <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+    <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_area :website %>
+  </div>
+    <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', user_path(current_user.id) %>
+
+

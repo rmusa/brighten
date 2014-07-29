@@ -1,0 +1,30 @@
+<h1>New event</h1>
+<%= form_for(@event, url: organization_events_path(params[:organization_id])) do |f| %>
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_area :name %>
+</div>
+<div class="field">
+  <%= f.label :picture %><br>
+  <%= f.text_area :event_picture %>
+</div>
+<div class="field">
+  <%= f.label :date_time %><br>
+  <%= f.text_area :date_time %>
+</div>
+<div class="field">
+  <%= f.label :location %><br>
+  <%= f.text_area :location %>
+</div>
+<div class="field">
+  <%= f.label :description %><br>
+  <%= f.text_area :description %>
+</div>
+<div class="field">
+  <%= f.label :event_email %><br>
+  <%= f.text_area :event_email %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

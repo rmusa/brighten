@@ -1,0 +1,18 @@
+<h1>Organization home page!</h1>
+
+<table>
+	<tbody>
+	  <tr><td><%= @organization.name %></td></tr>
+	  <tr><td><%= @organization.email %></td></tr>			  
+	  <tr><td><%= @organization.phone %></td></tr>
+	</tbody>
+</table>
+
+<%= link_to 'My profile', user_path(current_user.id) %>
+<%= link_to 'Create event', new_organization_event_path(@organization) %>
+
+<ul>
+<% @organization.events.each do |event| %>
+  <li><%= link_to "#{event.name}", event_path(event.id) %></li>
+<% end %>
+</ul>

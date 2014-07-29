@@ -1,0 +1,13 @@
+<h1>This is your profile page!</h1>
+<p><%= current_user.name %></p>
+
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %> <br>
+<%= link_to "New organization", new_organization_path %> <br>
+
+<ul>
+<% current_user.organizations.each do |organization| %>
+	  <li>
+	  	<%= link_to "#{organization.name}", organization_path(organization.id) %>
+    </li>
+<% end %>
+</ul>

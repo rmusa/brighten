@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
+  # clean up, should only have restful actions that are required
+  resources :users, :only => [:show]
+  resources :organizations, :only => [:show, :new, :create]
+  resources :events, :only => [:show]
 
-  root "users#index"
+  resources :organizations do
+    resources :events, only: [:new, :create]
+  end
+
+
+  root "users#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
