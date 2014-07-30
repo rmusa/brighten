@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   # clean up, should only have restful actions that are required
   resources :users, :only => [:show]
-  resources :organizations, :only => [:show, :new, :create]
-  resources :events, :only => [:show]
+  resources :organizations, :only => [:show, :new, :create, :index]
+  resources :events, :only => [:show, :index]
 
   resources :organizations do
     resources :events, only: [:new, :create]
   end
 
-  resources :attendance_confirmations, only: :create
+  resources :attendance_confirmations, only: [:create, :destroy]
 
   root "users#show"
   # The priority is based upon order of creation: first created -> highest priority.

@@ -10,9 +10,12 @@
 
 <%= link_to 'My profile', user_path(current_user.id) %>
 <%= link_to 'Create event', new_organization_event_path(@organization) %>
-
+<br>
+<p>Events:</p>
 <ul>
 <% @organization.events.each do |event| %>
   <li><%= link_to "#{event.name}", event_path(event.id) %></li>
 <% end %>
 </ul>
+<br>
+<%= link_to 'Organization search', organizations_path %>

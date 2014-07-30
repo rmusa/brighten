@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :attendance_confirmations
+  has_many :attendance_confirmations, dependent: :destroy
   has_many :events, through: :attendance_confirmations
-  has_many :organizations
+  has_many :organizations, dependent: :destroy
 end

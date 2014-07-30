@@ -1,0 +1,13 @@
+<h1>Find an event:</h1>
+
+<ul>
+	<% @events.each do |event| %>
+	<li>
+		<p><%= link_to event.name, event_path(event) %></p>
+		<p><%= event.date_time %></p>
+		<p><%= event.description %></p>
+	</li>
+	<% end %>
+</ul>
+
+<%= link_to "Back to profile", user_path(current_user) %>
