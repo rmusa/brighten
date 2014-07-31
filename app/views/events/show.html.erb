@@ -8,11 +8,26 @@
 	</tbody>
 </table>
 
+<p>Tags</p>
+<ul>
+	<% @event.tags.each do |tag| %>
+	  <li><%= tag.name %></li>
+	<% end %>
+</ul>
+
 <%= link_to 'My profile', user_path(current_user.id) %>
 <%= link_to 'Organization profile', organization_path(@event.organization.id) %>
-<% if @event.users.include?(current_user) %>
-	<%= link_to 'Unjoin', attendance_confirmation_path(@event.get_att_id(current_user)), method: :delete %>
-<% else %>
-  <%= link_to 'Join', attendance_confirmations_path(params: {user_id: current_user.id, event_id: @event.id}), method: :post %>
+
+<% if @event.organization.owner != current_user %>
+	<% if @event.users.include?(current_user) %>
+		<%= link_to 'Unjoin', attendance_confirmation_path(@event.get_att_id(current_user)), method: :delete %>
+	<% else %>
+	  <%= link_to 'Join', attendance_confirmations_path(params: {user_id: current_user.id, event_id: @event.id}), method: :post %>
+	<% end %>
 <% end %>
+
 <%= link_to 'Event search', events_path %>
+<% if @event.organization.owner == current_user %>
+	<%= link_to 'Edit', edit_organization_event_path(@event.organization, @event) %>
+	<%= link_to 'Delete', event_path(@event), method: :delete %>
+<% end %>

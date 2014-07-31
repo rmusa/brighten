@@ -2,11 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   # clean up, should only have restful actions that are required
   resources :users, :only => [:show]
-  resources :organizations, :only => [:show, :new, :create, :index]
-  resources :events, :only => [:show, :index]
+  resources :events, :only => [:show, :index, :destroy]
 
   resources :organizations do
-    resources :events, only: [:new, :create]
+    resources :events, only: [:new, :create, :edit, :update]
   end
 
   resources :attendance_confirmations, only: [:create, :destroy]

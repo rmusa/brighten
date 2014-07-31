@@ -1,5 +1,5 @@
-<h1>New event</h1>
-<%= form_for(@event, url: organization_events_path(params[:organization_id])) do |f| %>
+<h1>Edit event</h1>
+<%= form_for(@event, url: organization_event_path(params[:organization_id], @event.id)) do |f| %>
 <div class="field">
   <%= f.label :name %><br>
   <%= f.text_area :name %>
@@ -24,15 +24,9 @@
   <%= f.label :event_email %><br>
   <%= f.text_area :event_email %>
 </div>
-<% Constants::TAG_NAMES.each do |tag| %>
-    <div class="field">
-      <%= check_box_tag "tag_names[]", tag %>
-      <span><%= tag %></span>
-  </div>
-  <% end %>
 <div class="actions">
   <%= f.submit %>
 </div>
 <% end %>
 
-<%= link_to 'Cancel', organization_path(params[:organization_id]) %>
+<%= link_to 'Cancel', event_path(@event) %>

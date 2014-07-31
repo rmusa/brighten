@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
 	belongs_to :organization
 	has_many :attendance_confirmations, dependent: :destroy
-	has_many :users, through: :attendance_confirmations#, class_name: "User"
+	has_many :users, through: :attendance_confirmations
+	has_many :tags, as: :taggable
 
 
 	def get_att_id(user)

@@ -8,8 +8,19 @@
 	</tbody>
 </table>
 
+<p>Tags</p>
+<ul>
+	<% @organization.tags.each do |tag| %>
+	  <li><%= tag.name %></li>
+	<% end %>
+</ul>
+
 <%= link_to 'My profile', user_path(current_user.id) %>
-<%= link_to 'Create event', new_organization_event_path(@organization) %>
+<% if @organization.owner == current_user %>
+	<%= link_to 'Create event', new_organization_event_path(@organization) %>
+	<%= link_to 'Edit organization', edit_organization_path(@organization) %>
+	<%= link_to 'Delete organization', organization_path(@organization), method: :delete %>
+<% end %>
 <br>
 <p>Events:</p>
 <ul>

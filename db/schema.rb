@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729185001) do
+ActiveRecord::Schema.define(version: 20140730160020) do
 
   create_table "attendance_confirmations", force: true do |t|
     t.integer "user_id"
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 20140729185001) do
     t.string  "website"
     t.string  "address"
     t.integer "user_id"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggable_id"
+    t.string  "taggable_type"
   end
 
   create_table "users", force: true do |t|

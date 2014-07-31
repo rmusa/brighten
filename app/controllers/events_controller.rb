@@ -14,13 +14,32 @@ class EventsController < ApplicationController
 
 	def create
 	  @event = Event.create(event_params.merge({organization_id: params[:organization_id]}))
-    redirect_to event_path(@event.id)
+	  params[:tag_names].each do |name|
+			Tag.create(name: name, taggable: @event)
+		end
+    redirect_to event_path(@event)
 	end
+
+	def edit
+		@event = Event.find(params[:id])
+	end
+
+	def update
+		@event = Event.find(params[:id])
+		@event.update(event_params)
+		redirect_to event_path(@event)
+	end
+
+	def destroy
+		event = Event.find(params[:id])
+		org_id = event.organization.id
+		event.destroy
+		redirect_to organization_path(org_id)
+	end
+
 
 	private
 
-
-	
 	def event_params
 		params.require(:event).permit(:name, :event_picture, :date_time, :location, :number_attending, :description, :event_email)
 	end
