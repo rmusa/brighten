@@ -15,7 +15,7 @@ class EventsController < ApplicationController
 	def create
 	  @event = Event.create(event_params.merge({organization_id: params[:organization_id]}))
 	  params[:tag_names].each do |name|
-			Tag.create(name: name, taggable: @event)
+			Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
 		end
     redirect_to event_path(@event)
 	end
@@ -27,6 +27,10 @@ class EventsController < ApplicationController
 	def update
 		@event = Event.find(params[:id])
 		@event.update(event_params)
+		@event.taggings.destroy_all
+		params[:tag_names].each do |name|
+			Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
+		end
 		redirect_to event_path(@event)
 	end
 

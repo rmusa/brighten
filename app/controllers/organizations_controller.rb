@@ -1,7 +1,14 @@
 class OrganizationsController < ApplicationController
 
 	def index
-		@organizations = Organization.all
+		# binding.pry
+		if params[:tag].present?
+			# binding.pry
+			@organizations = Tag.find_tagged_organizations(params[:tag])
+			
+		else
+			@organizations = Organization.all 
+		end
 	end
 
 	def show
@@ -16,7 +23,7 @@ class OrganizationsController < ApplicationController
 		@organization = Organization.create(organization_params.merge({user_id: current_user.id}))
 		
 		params[:tag_names].each do |name|
-			Tag.create(name: name, taggable: @organization)
+			Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @organization)
 		end
 
     redirect_to organization_path(@organization.id)
@@ -29,6 +36,11 @@ class OrganizationsController < ApplicationController
 	def update
 		@organization = Organization.find(params[:id])
 		@organization.update(organization_params)
+		@organization.taggings.destroy_all
+		params[:tag_names].each do |name|
+			Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @organization)
+		end
+
 		redirect_to organization_path(@organization)
 	end
 
@@ -40,7 +52,8 @@ class OrganizationsController < ApplicationController
 
 	private
 
-		def organization_params
+	def organization_params
 		params.require(:organization).permit(:name, :organization_picture, :phone, :email, :description, :website, :address)
 	end
+
 end

@@ -29,6 +29,12 @@
     <%= f.label :address %><br>
     <%= f.text_area :address %>
   </div>
+  <% Tag.all.pluck(:name).each do |tag| %>
+    <div class="field">
+      <%= check_box_tag "tag_names[]", tag, checked = @organization.tags.pluck(:name).include?(tag) %>
+      <span><%= tag %></span>
+  </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

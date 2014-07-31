@@ -29,7 +29,7 @@
     <%= f.label :address %><br>
     <%= f.text_area :address %>
   </div>
-  <% Constants::TAG_NAMES.each do |tag| %>
+  <% Tag.all.pluck(:name).each do |tag| %>
     <div class="field">
       <%= check_box_tag "tag_names[]", tag %>
       <span><%= tag %></span>
