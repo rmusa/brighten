@@ -1,8 +1,11 @@
 <h1>Organization home page!</h1>
 
+
 <table>
 	<tbody>
 	  <tr><td><%= @organization.name %></td></tr>
+	  <tr><td><%= image_tag @organization.picture.url(:thumb) %>
+</td></tr>
 	  <tr><td><%= @organization.description %></td></tr>
 	  <tr><td><%= @organization.email %></td></tr>			  
 	  <tr><td><%= @organization.phone %></td></tr>

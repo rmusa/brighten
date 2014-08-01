@@ -1,7 +1,11 @@
 class EventsController < ApplicationController
 
 	def index
-		@events = Event.all
+		if params[:tag].present?
+			@events = Tag.find_tagged_events(params[:tag])
+		else
+			@events = Event.all 
+		end
 	end
 
 	def show
@@ -45,6 +49,6 @@ class EventsController < ApplicationController
 	private
 
 	def event_params
-		params.require(:event).permit(:name, :event_picture, :date_time, :location, :number_attending, :description, :event_email)
+		params.require(:event).permit(:name, :date_time, :location, :number_attending, :description, :event_email)
 	end
 end

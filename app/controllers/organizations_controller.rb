@@ -1,11 +1,8 @@
 class OrganizationsController < ApplicationController
 
 	def index
-		# binding.pry
 		if params[:tag].present?
-			# binding.pry
 			@organizations = Tag.find_tagged_organizations(params[:tag])
-			
 		else
 			@organizations = Organization.all 
 		end
@@ -53,7 +50,7 @@ class OrganizationsController < ApplicationController
 	private
 
 	def organization_params
-		params.require(:organization).permit(:name, :organization_picture, :phone, :email, :description, :website, :address)
+		params.require(:organization).permit(:name, :picture, :phone, :email, :description, :website, :address)
 	end
 
 end

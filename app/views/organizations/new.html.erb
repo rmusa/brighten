@@ -5,17 +5,19 @@
     <%= f.label :name %><br>
     <%= f.text_area :name %>
   </div>
-    <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.text_area :organization_picture %>
+
+  <div>
+    <%= f.label :picture %>
+    <%= f.file_field :picture %>
   </div>
+
     <div class="field">
     <%= f.label :phone %><br>
-    <%= f.text_area :phone %>
+    <%= f.telephone_field :phone %>
   </div>
     <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_area :email %>
+    <%= f.email_field :email %>
   </div>
     <div class="field">
     <%= f.label :description %><br>
