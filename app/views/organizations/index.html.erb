@@ -1,13 +1,8 @@
 <h1>Find an organization:</h1>
 
-<%= form_tag organizations_path, method: :get do %>
-  <%= select_tag :tag, options_for_select(Tag.all.pluck(:name)), prompt: "Search" %>
-  <%= submit_tag "Submit" %>
-<% end %>
+<%= render 'shared/tag_search', link: organizations_path %>
 
- <%= form_tag organizations_path, method: :get do %>
-  <%= text_field_tag :q, params[:q], placeholder: "Search Organizations" %>
-<% end %>
+<%= render 'shared/name_search', link: organizations_path, resource: "Organizations" %>
 
 <ul>
 	<% @organizations.each do |organization| %>

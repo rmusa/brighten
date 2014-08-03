@@ -1,13 +1,8 @@
 <h1>Find an event:</h1>
 
-<%= form_tag events_path, method: :get do %>
-  <%= select_tag :tag, options_for_select(Tag.all.pluck(:name)), prompt: "Search" %>
-  <%= submit_tag "Submit" %>
-<% end %>
+<%= render 'shared/tag_search', link: events_path %>
 
- <%= form_tag events_path, method: :get do %>
-  <%= text_field_tag :q, params[:q], placeholder: "Search Events" %>
-<% end %>
+<%= render 'shared/name_search', link: events_path, resource: "Events" %>
 
 <ul>
 	<% @events.each do |event| %>
