@@ -4,7 +4,8 @@
 	<tbody>
 	  <tr><td><%= @event.name %></td></tr>
 	  <tr><td><%= @event.location %></td></tr>
-	  <tr><td><%= @event.date_time %></td></tr>		  
+	  <tr><td><%= @event.date %></td></tr>		
+	  <tr><td><%= @event.time.strftime("%I:%M %p") %></td></tr>		    
 	  <tr><td><%= @event.description %></td></tr>
 	</tbody>
 </table>

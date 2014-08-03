@@ -8,7 +8,7 @@
 	<% @events.each do |event| %>
 	<li>
 		<p><%= link_to event.name, event_path(event) %></p>
-		<p><%= event.date_time %></p>
+		<p><%= event.date %></p>
 		<p><%= event.description %></p>
 	</li>
 	<% end %>
