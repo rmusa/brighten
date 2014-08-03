@@ -17,7 +17,6 @@
 	<% end %>
 </ul>
 
-<%= link_to 'My profile', user_path(current_user.id) %>
 <%= link_to 'Organization profile', organization_path(@event.organization.id) %>
 
 <% if @event.organization.owner != current_user %>
@@ -28,7 +27,6 @@
 	<% end %>
 <% end %>
 
-<%= link_to 'Event search', events_path %>
 <% if @event.organization.owner == current_user %>
 	<%= link_to 'Edit', edit_organization_event_path(@event.organization, @event) %>
 	<%= link_to 'Delete', event_path(@event), method: :delete %>

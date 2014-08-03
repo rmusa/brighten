@@ -19,7 +19,6 @@
 	<% end %>
 </ul>
 
-<%= link_to 'My profile', user_path(current_user.id) %>
 <% if @organization.owner == current_user %>
 	<%= link_to 'Create event', new_organization_event_path(@organization) %>
 	<%= link_to 'Edit organization', edit_organization_path(@organization) %>
@@ -33,4 +32,3 @@
 <% end %>
 </ul>
 <br>
-<%= link_to 'Organization search', organizations_path %>

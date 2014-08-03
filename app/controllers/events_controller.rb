@@ -31,15 +31,18 @@ class EventsController < ApplicationController
 
 	def edit
 		@event = Event.find(params[:id])
+		redirect_to event_path(@event) unless current_user == @event.organization.owner
 	end
 
 	def update
 		@event = Event.find(params[:id])
-		@event.update(event_params)
-		@event.taggings.destroy_all
-		params[:tag_names].each do |name|
-			Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
-		end
+		if current_user == @event.organization.owner
+			@event.update(event_params)
+			@event.taggings.destroy_all
+			params[:tag_names].each do |name|
+				Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
+			end
+	  end
 		redirect_to event_path(@event)
 	end
 

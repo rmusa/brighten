@@ -1,11 +1,7 @@
 
-
-
 <%= image_tag current_user.profile_picture.url(:thumb) %> <br>
 
 
-<%= link_to "Edit", edit_user_registration_path %> <br>
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %> <br>
 <%= link_to "New organization", new_organization_path %> <br>
 
 <p>My organizations</p>
@@ -28,6 +24,5 @@
 	<% end %>
 </ul>
 
-<%= link_to "Find an event!", events_path %>
-<%= link_to "Find an organization!", organizations_path %>
+
 
