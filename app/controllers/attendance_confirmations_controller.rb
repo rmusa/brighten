@@ -1,8 +1,8 @@
 class AttendanceConfirmationsController < ApplicationController
 
 	def create
-		#create only if doesn't already exist
-		AttendanceConfirmation.create({user_id: params[:user_id], event_id: params[:event_id]})
+		#changed create to first or create
+		AttendanceConfirmation.first_or_create({user_id: params[:user_id], event_id: params[:event_id]})
 		redirect_to event_path(params[:event_id])
 	end
 

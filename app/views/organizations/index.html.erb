@@ -5,7 +5,9 @@
   <%= submit_tag "Submit" %>
 <% end %>
 
-
+ <%= form_tag organizations_path, method: :get do %>
+  <%= text_field_tag :q, params[:q], placeholder: "Search Organizations" %>
+<% end %>
 
 <ul>
 	<% @organizations.each do |organization| %>

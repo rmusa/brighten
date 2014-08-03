@@ -10,4 +10,8 @@ class Event < ActiveRecord::Base
 		self.attendance_confirmations.find_by(user_id: user.id).id
 	end
 
+	def self.search(q)
+  	where("name LIKE ?", "%#{q}%")
+  end
+
 end

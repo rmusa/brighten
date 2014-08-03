@@ -3,6 +3,8 @@ class EventsController < ApplicationController
 	def index
 		if params[:tag].present?
 			@events = Tag.find_tagged_events(params[:tag])
+		elsif params[:q].present?
+			@events = Event.search(params[:q])
 		else
 			@events = Event.all 
 		end
@@ -18,9 +20,12 @@ class EventsController < ApplicationController
 
 	def create
 	  @event = Event.create(event_params.merge({organization_id: params[:organization_id]}))
-	  params[:tag_names].each do |name|
-			Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
-		end
+
+	  if params[:tag_names].present?
+		  params[:tag_names].each do |name|
+				Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
+			end
+	  end
     redirect_to event_path(@event)
 	end
 

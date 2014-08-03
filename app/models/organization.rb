@@ -10,5 +10,12 @@ class Organization < ActiveRecord::Base
     :default_url => "missing.jpg"
   validates_attachment_content_type :picture, 
     :content_type => /\Aimage\/.*\Z/
+
+
+  def self.search(q)
+  	where("name LIKE ?", "%#{q}%")
+  end
+
+
 end
 

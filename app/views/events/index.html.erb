@@ -5,6 +5,10 @@
   <%= submit_tag "Submit" %>
 <% end %>
 
+ <%= form_tag events_path, method: :get do %>
+  <%= text_field_tag :q, params[:q], placeholder: "Search Events" %>
+<% end %>
+
 <ul>
 	<% @events.each do |event| %>
 	<li>
