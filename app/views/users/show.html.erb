@@ -1,20 +1,6 @@
 
 <%= image_tag current_user.profile_picture.url(:thumb), class: "img-circle" %> <br>
 
-
-<%= link_to "New organization", new_organization_path %> <br>
-
-<p>My organizations</p>
-<ul>
-<% current_user.organizations.each do |organization| %>
-	  <li>
-	  	<%= link_to "#{organization.name}", organization_path(organization.id) %>
-    </li>
-<% end %>
-</ul> 
-
-<br>
-
 <p>Events I'm attending!</p>
 <ul>
 	<% current_user.events.each do |event| %>
