@@ -14,4 +14,11 @@ class Event < ActiveRecord::Base
   	where("name LIKE ?", "%#{q}%")
   end
 
+  def self.search_by_date(start_date, end_date)
+  	start_date =  start_date.kind_of?(Array) ? Date.parse(start_date[0]) : Date.parse(start_date.values[0])
+    end_date =  end_date.kind_of?(Array) ? Date.parse(end_date[0]) : Date.parse(end_date.values[0])
+
+  	where(date: start_date..end_date)
+  end
+
 end

@@ -3,6 +3,8 @@ class EventsController < ApplicationController
 	def index
 		if params[:tag].present?
 			@events = Tag.find_tagged_events(params[:tag])
+		elsif params[:start_date].present? && params[:end_date].present?
+			@events = Event.search_by_date(params[:start_date], params[:end_date])
 		elsif params[:q].present?
 			@events = Event.search(params[:q])
 		else
