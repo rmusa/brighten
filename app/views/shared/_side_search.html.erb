@@ -1,8 +1,4 @@
 <%= form_tag events_path, method: :get do %>
-	<%= radio_button_tag(:type, "event") %>
-	<%= label_tag(:type, "Event") %>
-	<%= radio_button_tag(:type, "organization") %>
-	<%= label_tag(:type, "Organization") %>
 	<%= select_tag :tag, options_for_select(Tag.all.pluck(:name)), prompt: "Search" %>
 	<%= text_field_tag :q, params[:q], placeholder: "Search" %>
 	<%= date_field :start_date, params[:start_date] %>
