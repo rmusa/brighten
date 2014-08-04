@@ -1,4 +1,3 @@
-<h1>Find an event:</h1>
 
 <%= render 'shared/tag_search', link: events_path %>
 
@@ -9,9 +8,15 @@
 <ul>
 	<% @events.each do |event| %>
 	<li>
-		<p><%= link_to event.name, event_path(event) %></p>
-		<p><%= event.date %></p>
-		<p><%= event.description %></p>
+		<div class="media">
+			<a class="pull-left" href="#">
+				<%= image_tag event.organization.picture.url(:thumb), class: "media_object img-circle" %>
+			</a>
+			<div class="media-body">
+				<h4><%= link_to event.name, event_path(event), class: "media-heading" %></h4>
+				<%= event.description %>
+			</div>
+		</div>
 	</li>
 	<% end %>
 </ul>

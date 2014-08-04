@@ -1,4 +1,3 @@
-<h1>Find an organization:</h1>
 
 <%= render 'shared/tag_search', link: organizations_path %>
 
@@ -7,8 +6,15 @@
 <ul>
 	<% @organizations.each do |organization| %>
 	<li>
-		<p><%= link_to organization.name, organization_path(organization) %></p>
-		<p><%= organization.description %></p>
+		<div class="media">
+			<a class="pull-left" href="#">
+				<%= image_tag organization.picture.url(:thumb), class: "media_object img-circle" %>
+			</a>
+			<div class="media-body">
+				<h4><%= link_to organization.name, organization_path(organization), class: "media-heading" %></h4>
+				<%= organization.description %>
+			</div>
+		</div>
 	</li>
 	<% end %>
 </ul>
