@@ -1,38 +1,49 @@
-<h1>New event</h1>
-<%= form_for(@event, url: organization_events_path(params[:organization_id])) do |f| %>
-<div class="field">
-  <%= f.label :name %><br>
-  <%= f.text_area :name %>
-</div>
-<div class="field">
-  <%= f.label :date %><br>
-  <%= f.date_field :date %>
-</div>
-<div class="field">
-  <%= f.label :time %><br>
-  <%= f.time_field :time %>
-</div>
-<div class="field">
-  <%= f.label :location %><br>
-  <%= f.text_area :location %>
-</div>
-<div class="field">
-  <%= f.label :description %><br>
-  <%= f.text_area :description %>
-</div>
-<div class="field">
-  <%= f.label :event_email %><br>
-  <%= f.email_field :event_email %>
-</div>
-<% Tag.all.pluck(:name).each do |tag| %>
-    <div class="field">
-      <%= check_box_tag "tag_names[]", tag %>
-      <span><%= tag %></span>
+<div id="all_text">
+  <div id="new_event_title">
+    <p>New event: </p>
   </div>
-  <% end %>
-<div class="actions">
-  <%= f.submit %>
-</div>
-<% end %>
 
-<%= link_to 'Cancel', organization_path(params[:organization_id]) %>
+  <div class="col-md-4">
+    <%= form_for(@event, url: organization_events_path(params[:organization_id])) do |f| %>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <br><%= f.label :date %><br>
+        <%= f.date_field :date %>
+      </div>
+      <div class="field">
+        <br><%= f.label :time %><br>
+        <%= f.time_field :time %>
+      </div>
+      <div class="field">
+        <br><%= f.label :location %><br>
+        <%= f.text_field :location %>
+      </div>
+      <div class="field">
+        <br><%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </div>
+      <div class="field">
+        <br><%= f.label :event_email %><br>
+        <%= f.email_field :event_email %>
+      </div>
+  </div>
+
+  <div class="col-md-8">
+      <% Tag.all.pluck(:name).each do |tag| %>
+        <div class="field form-group">
+          <%= check_box_tag "tag_names[]", tag %>
+          <span><%= tag %></span>
+        </div>
+      <% end %>
+      
+      <div class="actions">
+        <br><%= f.submit class: "btn btn-primary"%><br><br>
+      </div>
+    <% end %>
+    <%= link_to 'Cancel', organization_path(params[:organization_id]) %>
+  </div>
+</div>
+
