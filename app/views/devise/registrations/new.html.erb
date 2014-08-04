@@ -1,7 +1,11 @@
 <div id="sign_form">
 
+  <div id="logo">
+    <br><%= image_tag "brighten_logo_2.png" %>
+  </div>
+
   <div id="sign_title">
-    <h2><br>Sign up</h2>
+    <h2>Sign up</h2>
   </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -29,6 +33,6 @@
     <div><br><%= f.submit "Sign up", class: "btn btn-xlarge btn-primary"%></div>
   <% end %>
 
-  <br><%= render "devise/shared/links" %><br>
+  <%= render "devise/shared/links" %><br>
 
 </div>
