@@ -4,7 +4,7 @@
 <table>
 	<tbody>
 	  <tr><td><%= @organization.name %></td></tr>
-	  <tr><td><%= image_tag @organization.picture.url(:thumb) %>
+	  <tr><td><%= image_tag @organization.picture.url(:thumb), class: "img-circle" %>
 </td></tr>
 	  <tr><td><%= @organization.description %></td></tr>
 	  <tr><td><%= @organization.email %></td></tr>			  

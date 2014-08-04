@@ -6,7 +6,7 @@ class Organization < ActiveRecord::Base
 
 
 	has_attached_file :picture, 
-    :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
+    :styles => { :medium => "300x300!", :thumb => "140x140!" }, 
     :default_url => "missing.jpg"
   validates_attachment_content_type :picture, 
     :content_type => /\Aimage\/.*\Z/
