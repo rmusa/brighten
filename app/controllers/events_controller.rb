@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
 	def index
-		@events = Event.search(params[:tag], params[:q], params[:start_date], params[:end_date])
+		@events = Event.search(params)
 	end
 
 	def show

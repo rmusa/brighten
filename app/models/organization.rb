@@ -12,10 +12,10 @@ class Organization < ActiveRecord::Base
     :content_type => /\Aimage\/.*\Z/
 
 
-  def self.search(tag, q)
+  def self.search(params)
     result = Organization.all
-    result = Tag.find_tagged_organizations(tag) if tag && !tag.empty?
-    result = result & self.where("name LIKE ?", "%#{q}%") if q && !q.empty?
+    result = result & Tag.find_tagged_organizations(params[:tag]) if params[:tag].present?
+    result = result & self.where("name LIKE ?", "%#{params[:q]}%") if params[:q].present?
     result
   end
 

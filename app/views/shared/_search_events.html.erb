@@ -1,7 +1,7 @@
 <%= form_tag events_path, method: :get do %>
 	<%= select_tag :tag, options_for_select(Tag.all.pluck(:name)), prompt: "Search by tag" %> <br>
 	<br><%= text_field_tag :q, params[:q], placeholder: "Search by name" %> <br>
-	<br><%= date_field :start_date, params[:start_date] %> <br>
-	<br><%= date_field :end_date, params[:end_date] %> <br>
+	<br><%= date_field_tag :start_date, params[:start_date] %> <br>
+	<br><%= date_field_tag :end_date, params[:end_date] %> <br>
 	<br><%= submit_tag "Submit", class: "btn btn-success" %> <br>
 <% end %>
