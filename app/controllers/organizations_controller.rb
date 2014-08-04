@@ -25,9 +25,9 @@ class OrganizationsController < ApplicationController
 			params[:tag_names].each do |name|
 				Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @organization)
 			end
-	  end
+	  	end
 
-    redirect_to organization_path(@organization.id)
+    	redirect_to organization_path(@organization.id)
 	end
 
 	def edit

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FinalProject</title>
+		<%= stylesheet_link_tag    'application', media: 'all' %>
+		<%= javascript_include_tag 'application' %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id="image_ct">
+  			<%= image_tag "nice_ct.jpg", class: "stretch" %>
+		</div>
+		<div class="container">
+			<% if flash[:notice] %>
+			<div class="alert alert-success"><%= flash[:notice] %></div>
+			<% end %>
+			<% if flash[:alert] %>
+			<div class="alert alert-danger"><%= flash[:alert] %></div>
+			<% end %>
+			<%= yield %>
+		</div>
+	</body>
+</html>
