@@ -3,8 +3,8 @@
     <p>New event: </p>
   </div>
 
+  <%= form_for(@event, url: organization_events_path(params[:organization_id])) do |f| %>
   <div class="col-md-4">
-    <%= form_for(@event, url: organization_events_path(params[:organization_id])) do |f| %>
       <div class="field">
         <%= f.label :name %><br>
         <%= f.text_field :name %>

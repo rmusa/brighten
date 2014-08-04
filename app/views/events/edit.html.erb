@@ -3,8 +3,9 @@
     <p>Edit event: </p>
   </div>
 
+  <%= form_for(@event, url: organization_event_path(params[:organization_id], @event.id)) do |f| %>
   <div class="col-md-4">
-    <%= form_for(@event, url: organization_event_path(params[:organization_id], @event.id)) do |f| %>
+    
       <div class="field">
         <%= f.label :name %><br>
         <%= f.text_field :name %>
@@ -40,7 +41,7 @@
     <% end %>
     
     <div class="actions">
-      <%= f.submit class: "btn btn-primary"%><br><br>
+      <%= f.submit class: "btn btn-primary"%> <br><br>
     </div>
     <% end %>
     <%= link_to 'Cancel', event_path(@event) %>
