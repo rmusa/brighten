@@ -1,4 +1,6 @@
-
+<% content_for :search do %>
+  <%= render 'shared/search_events' %>
+<% end %>
 
 <ul>
 	<% @events.each do |event| %>

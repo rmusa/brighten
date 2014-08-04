@@ -12,8 +12,11 @@ class Organization < ActiveRecord::Base
     :content_type => /\Aimage\/.*\Z/
 
 
-  def self.search(q)
-  	where("name LIKE ?", "%#{q}%")
+  def self.search(tag, q)
+    result = Organization.all
+    result = Tag.find_tagged_organizations(tag) if tag && !tag.empty?
+    result = result & self.where("name LIKE ?", "%#{q}%") if q && !q.empty?
+    result
   end
 
 

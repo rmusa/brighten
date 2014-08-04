@@ -2,7 +2,7 @@ class StaticController < ApplicationController
 
 	def home		
 	  if signed_in?
-		  redirect_to user_path(current_user)
+		  redirect_to events_path
 	  else
 	  	render layout: "homepage.html.erb"
 	  end

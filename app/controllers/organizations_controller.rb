@@ -1,13 +1,7 @@
 class OrganizationsController < ApplicationController
 
 	def index
-		if params[:tag].present?
-			@organizations = Tag.find_tagged_organizations(params[:tag])
-		elsif params[:q].present?
-			@organizations = Organization.search(params[:q])
-		else
-			@organizations = Organization.all 
-		end
+		@organizations = Organization.search(params[:tag], params[:q])
 	end
 
 	def show
@@ -47,7 +41,7 @@ class OrganizationsController < ApplicationController
 
 	def destroy
 		Organization.find(params[:id]).destroy
-		redirect_to user_path(current_user)
+		redirect_to events_path
 	end
 
 
