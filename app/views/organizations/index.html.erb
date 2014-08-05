@@ -2,7 +2,6 @@
   <%= render 'shared/search_organizations' %>
 <% end %>
 
-
 <ul>
 	<% @organizations.each do |organization| %>
 	<li>
@@ -10,12 +9,18 @@
 			<a class="pull-left" href="#">
 				<%= image_tag organization.picture.url(:thumb), class: "media_object img-circle" %>
 			</a>
-			<div class="media-body">
+			<div id="event_desc">
 				<h4><%= link_to organization.name, organization_path(organization), class: "media-heading" %></h4>
-				<%= organization.description %>
+				<% if organization.description.length > 500 %>
+					<%= organization.description[0, 500] %>
+					<%= "..." %>
+				<% else %>
+					<%= organization.description %>
+				<% end %>
 			</div>
 		</div>
 	</li>
+	<br>
 	<% end %>
 </ul>
 
