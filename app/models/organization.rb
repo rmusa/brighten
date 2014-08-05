@@ -4,6 +4,7 @@ class Organization < ActiveRecord::Base
 	has_many :taggings, as: :taggable, dependent: :destroy
 	has_many :tags, through: :taggings
 
+  paginates_per 5
 
 	has_attached_file :picture, 
     :styles => { :medium => "300x300!", :thumb => "140x140!" }, 

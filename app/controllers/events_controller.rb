@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
 	def index
-		@events = Event.search(params)
+		@events = Event.search(params).page(params[:page])
 	end
 
 	def show
