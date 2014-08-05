@@ -4,7 +4,7 @@
 <ul>
 	<% @events.each do |event| %>
 	<li>
-		<div>
+		<div class="media">
 			<a class="pull-left" href="#">
 				<%= image_tag event.organization.picture.url(:thumb), class: "media_object img-circle" %>
 			</a>
