@@ -1,4 +1,0 @@
-<%= form_tag link, method: :get do %>
-  <%= select_tag :tag, options_for_select(Tag.all.pluck(:name)), prompt: "Search" %>
-  <%= submit_tag "Submit" %>
-<% end %>

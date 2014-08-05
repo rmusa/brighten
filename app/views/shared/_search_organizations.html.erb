@@ -1,5 +1,5 @@
 <%= form_tag organizations_path, method: :get do %>
 	<%= select_tag :tag, options_for_select(Tag.all.pluck(:name)), prompt: "Search by tag" %> <br>
 	<br><%= text_field_tag :q, params[:q], placeholder: "Search by name" %> <br>
-	<br><%= submit_tag "Submit", class: "btn btn-success" %> <br><br>
+	<br><%= submit_tag "Submit", class: "btn btn-primary" %> <br><br>
 <% end %>
