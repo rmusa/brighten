@@ -35,6 +35,7 @@ gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'ffaker'
+gem 'kaminari'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

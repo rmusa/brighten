@@ -22,8 +22,8 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><%= link_to "Find an event", events_path %></li>
-						<li><%= link_to "Find an organization", organizations_path %></li>
+						<li class="<%= 'active' if params[:controller] == 'events' %>"><%= link_to "Find an event", events_path %></li>
+						<li class="<%= 'active' if params[:controller] == 'organizations' %>"><%= link_to "Find an organization", organizations_path %></li>
 					</ul>
 					<% if user_signed_in? %>
 						<ul class="nav navbar-nav navbar-right">

@@ -1,7 +1,7 @@
 class OrganizationsController < ApplicationController
 
 	def index
-		@organizations = Organization.search(params)
+		@organizations = Organization.search(params).page(params[:page])
 	end
 
 	def show
