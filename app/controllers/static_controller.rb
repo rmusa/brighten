@@ -8,6 +8,10 @@ class StaticController < ApplicationController
 	  end
 	end
 
+	def edit
+		render layout: "application.html.erb"
+	end
+
 end
 
 #0060FF - dark blue

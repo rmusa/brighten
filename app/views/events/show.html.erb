@@ -2,34 +2,53 @@
   <%= render 'shared/search_events' %>
 <% end %>
 
-<table>
-	<tbody>
-	  <tr><td><%= @event.name %></td></tr>
-	  <tr><td><%= @event.location %></td></tr>
-	  <tr><td><%= @event.date %></td></tr>		
-	  <tr><td><%= @event.time.strftime("%I:%M %p") %></td></tr>		    
-	  <tr><td><%= @event.description %></td></tr>
-	</tbody>
-</table>
+<div id="new_event_title">
+	<%= @event.name %>
+</div>
 
-<p>Tags</p>
-<ul>
-	<% @event.tags.each do |tag| %>
-	  <li><%= tag.name %></li>
+<div class="col-md-3">
+	<div id="org_pic">
+		<br><%= image_tag @event.organization.picture.url(:thumb), class: "img-circle" %>
+	</div>
+
+	<br><%= link_to 'Organization profile', organization_path(@event.organization.id) %><br>
+
+	<% if @event.organization.owner != current_user %>
+		<% if @event.users.include?(current_user) %>
+			<br><%= link_to 'Unjoin', attendance_confirmation_path(@event.get_att_id(current_user)), method: :delete, class: "btn btn-primary" %><br>
+		<% else %>
+		  <br><%= link_to 'Join', attendance_confirmations_path(params: {user_id: current_user.id, event_id: @event.id}), method: :post, class: "btn btn-primary" %><br>
+		<% end %>
 	<% end %>
-</ul>
 
-<%= link_to 'Organization profile', organization_path(@event.organization.id) %>
-
-<% if @event.organization.owner != current_user %>
-	<% if @event.users.include?(current_user) %>
-		<%= link_to 'Unjoin', attendance_confirmation_path(@event.get_att_id(current_user)), method: :delete %>
-	<% else %>
-	  <%= link_to 'Join', attendance_confirmations_path(params: {user_id: current_user.id, event_id: @event.id}), method: :post %>
+	<% if @event.organization.owner == current_user %>
+		<%= link_to 'Edit event', edit_organization_event_path(@event.organization, @event) %><br>
+		<%= link_to 'Delete event', event_path(@event), method: :delete %><br>
 	<% end %>
-<% end %>
 
-<% if @event.organization.owner == current_user %>
-	<%= link_to 'Edit', edit_organization_event_path(@event.organization, @event) %>
-	<%= link_to 'Delete', event_path(@event), method: :delete %>
-<% end %>
+	<div id="unhappy_title">
+		<br><p>When & Where:</p>
+	</div>
+
+	<%= @event.date %>	
+	<%= @event.time.strftime("%I:%M %p") %><br>
+	<%= @event.location %>
+
+	<div id="unhappy_title">
+		<br><p>Tags:</p>
+	</div>
+	<ul>
+		<% @event.tags.each do |tag| %>
+		  <li><%= tag.name %></li>
+		<% end %>
+	</ul>
+</div>
+
+<div class="col-md-6">
+	<div id="unhappy_title">
+		<br><p>Description:</p>
+	</div>
+
+	<%= @event.description %>
+
+</div>

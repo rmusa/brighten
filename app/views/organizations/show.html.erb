@@ -2,34 +2,54 @@
   <%= render 'shared/search_organizations' %>
 <% end %>
 
-<table>
-	<tbody>
-	  <tr><td><%= @organization.name %></td></tr>
-	  <tr><td><%= image_tag @organization.picture.url(:thumb), class: "img-circle" %>
-</td></tr>
-	  <tr><td><%= @organization.description %></td></tr>
-	  <tr><td><%= @organization.email %></td></tr>			  
-	  <tr><td><%= @organization.phone %></td></tr>
-	</tbody>
-</table>
+<div id="new_event_title">
+	<%= @organization.name %><br>
+</div>
 
-<p>Tags</p>
-<ul>
-	<% @organization.tags.each do |tag| %>
-	  <li><%= tag.name %></li>
-	<% end %>
-</ul>
+<div class="col-md-3">
 
-<% if @organization.owner == current_user %>
-	<%= link_to 'Create event', new_organization_event_path(@organization) %>
-	<%= link_to 'Edit organization', edit_organization_path(@organization) %>
-	<%= link_to 'Delete organization', organization_path(@organization), method: :delete %>
-<% end %>
-<br>
-<p>Events:</p>
-<ul>
-<% @organization.events.each do |event| %>
-  <li><%= link_to "#{event.name}", event_path(event.id) %></li>
-<% end %>
-</ul>
-<br>
+	<div id="org_pic">
+		<br><%= image_tag @organization.picture.url(:thumb), class: "img-circle" %>
+	</div>
+
+	<% if @organization.owner == current_user %>
+		<br><%= link_to 'Create event', new_organization_event_path(@organization) %><br>
+		<%= link_to 'Edit organization', edit_organization_path(@organization) %><br>
+		<%= link_to 'Delete organization', organization_path(@organization), method: :delete %>
+	<% end %><br>
+
+	<div id="unhappy_title">
+		<br><p>Tags:</p>
+	</div>
+	<ul>
+		<% @organization.tags.each do |tag| %>
+		  <li><%= tag.name %></li>
+		<% end %>
+	</ul>
+
+</div>
+
+<div class="col-md-6">
+
+	<div id="unhappy_title">
+		<br><p>About Us:</p>
+	</div>
+	<%= @organization.description %>
+	
+	<div id="unhappy_title">
+		<br><p>Contact Us:</p>
+	</div>
+	<%= @organization.email %><br>	  
+	<%= @organization.phone %>
+
+	<div id="unhappy_title">
+		<br><p>Events:</p>
+	</div>
+
+	<ul>
+		<% @organization.events.each do |event| %>
+		  <li><%= link_to "#{event.name}", event_path(event.id) %></li>
+		<% end %>
+	</ul>
+
+</div>

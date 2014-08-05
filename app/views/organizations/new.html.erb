@@ -36,7 +36,7 @@
       </div>
   </div>
 
-  <div class="col-md-8">
+  <div class="col-md-6">
     <% Tag.all.pluck(:name).each do |tag| %>
       <div class="field form-group">
         <%= check_box_tag "tag_names[]", tag %>
