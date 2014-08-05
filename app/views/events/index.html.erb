@@ -1,6 +1,7 @@
 <% content_for :search do %>
   <%= render 'shared/search_events' %>
 <% end %>
+
 <ul>
 	<% @events.each do |event| %>
 	<li>
@@ -10,10 +11,15 @@
 			</a>
 			<div id="event_desc">
 				<h4><%= link_to event.name, event_path(event), class: "media-heading" %></h4>
-				<%= event.description[0, 500] %>
-				<%= "..." %>
+				<% if event.description.length > 500 %>
+					<%= event.description[0, 500] %>
+					<%= "..." %>
+				<% else %>
+					<%= event.description %>
+				<% end %>
 			</div>
 		</div>
 	</li>
+	<br>
 	<% end %>
 </ul>
