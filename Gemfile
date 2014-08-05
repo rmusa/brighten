@@ -34,6 +34,7 @@ gem 'paperclip'
 # gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'ffaker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

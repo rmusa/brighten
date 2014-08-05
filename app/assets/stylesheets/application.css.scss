@@ -16,7 +16,6 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Fira+Sans);
 
 .navbar-nav.navbar-right:last-child {
 	margin-right: 0px;
@@ -26,6 +25,7 @@ ul {
 	list-style-type: none;
 }
 
+/*
 .navbar {
 	background-color: #2C4F7F;
 	color: white;
@@ -42,4 +42,4 @@ ul {
 
 .navbar .navbar-brand {
 	color: white;
-}
+}*/
