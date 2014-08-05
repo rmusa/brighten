@@ -5,16 +5,16 @@
 <ul>
 	<% @events.each do |event| %>
 	<li>
-		<div class="media">
+		<div>
 			<a class="pull-left" href="#">
 				<%= image_tag event.organization.picture.url(:thumb), class: "media_object img-circle" %>
 			</a>
-			<div class="media-body">
+			<div id="event_desc">
 				<h4><%= link_to event.name, event_path(event), class: "media-heading" %></h4>
-				<%= event.description %>
+				<%= event.description[0, 500] %>
+				<%= "..." %>
 			</div>
 		</div>
 	</li>
 	<% end %>
 </ul>
-
