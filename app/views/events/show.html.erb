@@ -30,7 +30,7 @@
 		<br><p>When & Where:</p>
 	</div>
 
-	<%= @event.date %>	
+	<%= @event.date.strftime("%v") %>	
 	<%= @event.time.strftime("%I:%M %p") %><br>
 	<%= @event.location %>
 
