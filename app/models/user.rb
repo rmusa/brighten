@@ -13,5 +13,16 @@ class User < ActiveRecord::Base
     :default_url => "missing.jpg"
   validates_attachment_content_type :profile_picture, 
     :content_type => /\Aimage\/.*\Z/
+
+  def get_organizing_events
+    events = []
+    self.organizations.each do |organization|
+      organization.events.each do |event|
+        events << event
+      end
+    end
+  events
+  end
+
 end
   

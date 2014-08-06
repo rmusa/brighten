@@ -42,7 +42,7 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">My Organizations <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 									<% if current_user.organizations.empty? %>
-										<li><p class="navbar-text">You have no organizations</p></li>
+										<li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">You have no organizations</a></li>
 									<% else %>
 										<% current_user.organizations.each do |organization| %>
 											<li><%= link_to "#{organization.name}", organization_path(organization.id) %></li>
@@ -59,9 +59,18 @@
 								<ul class="dropdown-menu" role="menu">
 									<li role="presentation" class="dropdown-header">Events you're attending</li>
 									<% if current_user.events.empty? %>
-										<li><p class="navbar-text">You are not attending any events</p></li>
+										<li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">You are not attending any events</a></li>
 									<% else %>
 										<% current_user.events.each do |event| %>
+										<li><%= link_to "#{event.name}", event_path(event.id) %></li>
+										<% end %>
+									<% end %>
+									<li class="divider"></li>
+									<li role="presentation" class="dropdown-header">Events you're organizing</li>	
+										<% if current_user.get_organizing_events.empty? %>
+										<li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">You are not organizing any events</a></li>
+									<% else %>
+										<% current_user.get_organizing_events.each do |event| %>
 										<li><%= link_to "#{event.name}", event_path(event.id) %></li>
 										<% end %>
 									<% end %>
