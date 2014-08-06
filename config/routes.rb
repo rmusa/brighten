@@ -10,7 +10,12 @@ Rails.application.routes.draw do
 
   resources :attendance_confirmations, only: [:create, :destroy]
 
-  root "static#home", as: :home
+  # root "static#home", as: :home
+
+  devise_scope :user do
+    root "devise/sessions#new", as: :home
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -5,7 +5,7 @@
   </div>
 
   <div id="sign_title">
-    <h2>Sign up</h2>
+    <p>Sign up</p>
   </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -30,7 +30,7 @@
     <div><%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-    <div><br><%= f.submit "Sign up", class: "btn btn-xlarge btn-primary"%></div>
+    <div><br><%= f.submit "Sign up", class: "btn btn-large btn-primary"%></div>
   <% end %>
 
   <%= render "devise/shared/links" %><br>
