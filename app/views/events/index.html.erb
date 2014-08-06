@@ -18,6 +18,8 @@
 					<%= event.description %>
 				<% end %> <br>
 				<%= event.date.strftime("%v") %>, <%= event.time.strftime("%I:%M %p") %>
+				&ndash;
+				<%= event.endtime.strftime("%I:%M %p") %>
 			</div>
 		</div>
 	</li>
