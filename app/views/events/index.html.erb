@@ -16,7 +16,8 @@
 					<%= "..." %>
 				<% else %>
 					<%= event.description %>
-				<% end %>
+				<% end %> <br>
+				<%= event.date.strftime("%v") %>, <%= event.time.strftime("%I:%M %p") %>
 			</div>
 		</div>
 	</li>
