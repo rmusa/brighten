@@ -1,11 +1,13 @@
 <% content_for :search do %>
   <%= render 'shared/search_events' %>
 <% end %>
-
+<div class="row">
 <div id="new_event_title">
 	<%= @event.name %>
 </div>
+</div>
 
+<div class="row">
 <div class="col-md-3">
 	<div id="org_pic">
 		<br><%= image_tag @event.organization.picture.url(:thumb), class: "img-circle" %>
@@ -41,7 +43,7 @@
 	</ul>
 </div>
 
-<div class="col-md-6">
+<div class="col-md-7">
 	<div id="unhappy_title">
 		<br><p>When & Where:</p>
 	</div>
@@ -58,16 +60,27 @@
 
 	<%= @event.description %>
 
+	
+</div>
 </div>
 
-<%= form_for @new_comment do |f| %>
-  <%= f.label :content, "Add a comment:" %>
-  <%= f.text_field :content %>
-  <%= f.hidden_field :event_id, :value => @event.id %>
-<% end %>
+<div class="row">
+	<div id="comments">
+		<div id="unhappy_title">
+			<br><p>Comments:</p>
+		</div>	
 
+		<%= form_for @new_comment do |f| %>
+		  <%= f.label :content, "Add a comment:" %>
+		  <%= f.text_field :content %>
+		  <%= f.hidden_field :event_id, :value => @event.id %>
+		<% end %><br>
 
-<ul><% @event.comments.each do |comment| %>
-	<li><%= comment.user.name %>
-		<%= comment.content %></li>
-	<% end %></ul>
+		<div id="comment_list">
+			<% @event.comments.reverse.each do |comment| %>
+				<div id="comment_name"><%= comment.user.name %>:<br></div>
+				<div id="comment_content"><%= comment.content %><br></div><br>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -2,7 +2,7 @@ namespace :db do
 	desc "Populate the database with data"
 	task populate: 'db:setup' do
 
-		["Children", "Animals", "Health", "Food", "Education", "Technology", "Environment", "Housing", "Seniors", "Sport", "Culture"].each do |tag|
+		["Children", "Animals", "Health", "Food", "Education", "Technology", "Environment", "Housing", "Seniors", "Sport", "Culture", "Other"].each do |tag|
 			Tag.create(name: tag)
 		end
 
