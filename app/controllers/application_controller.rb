@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    if devise_controller? && action_name != 'edit'
+    if devise_controller? && action_name != 'edit' && action_name != 'update'
       "homepage"
     else
       "application"
