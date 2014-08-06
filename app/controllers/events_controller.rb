@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
 	def show
 		@new_comment = Comment.new
+		@comments = Kaminari.paginate_array(Event.find(params[:id]).comments.reverse).page(params[:page]).per(5)
 		@event = Event.find(params[:id])
 	end
 
