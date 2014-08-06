@@ -11,7 +11,7 @@
 		<br><%= image_tag @event.organization.picture.url(:thumb), class: "img-circle" %>
 	</div>
 
-	<br><%= link_to 'Back to profile', organization_path(@event.organization.id) %><br>
+	<br><%= link_to 'View organization', organization_path(@event.organization.id) %><br>
 
 	<% if @event.organization.owner != current_user %>
 		<% if @event.users.include?(current_user) %>

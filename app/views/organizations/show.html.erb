@@ -46,7 +46,7 @@
 		<br><p>Events:</p>
 	</div>
 
-	<ul>
+	<ul id="event-list">
 		<% @organization.events.each do |event| %>
 		  <li><%= link_to "#{event.name}", event_path(event.id) %></li>
 		<% end %>
