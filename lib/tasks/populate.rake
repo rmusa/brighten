@@ -35,6 +35,7 @@ namespace :db do
 						e.description = Faker::Lorem.paragraph
 						e.date = rand(1.year).from_now.to_date
 						e.time = rand(1.year).from_now
+						e.endtime = e.time + 1.hour
 						e.event_email = Faker::Internet.email
 					end
 

@@ -11,8 +11,6 @@
 		<br><%= image_tag @event.organization.picture.url(:thumb), class: "img-circle" %>
 	</div>
 
-	<br><%= link_to 'View organization', organization_path(@event.organization.id) %><br>
-
 	<% if @event.organization.owner != current_user %>
 		<% if @event.users.include?(current_user) %>
 			<br><%= link_to 'Unjoin', attendance_confirmation_path(@event.get_att_id(current_user)), method: :delete, class: "btn btn-primary" %><br>
@@ -21,21 +19,20 @@
 		<% end %>
 	<% end %>
 
+	<br><%= link_to 'View organization', organization_path(@event.organization.id) %><br>
+
 	<% if @event.organization.owner == current_user %>
 		<%= link_to 'Edit event', edit_organization_event_path(@event.organization, @event) %><br>
 		<%= link_to 'Delete event', event_path(@event), method: :delete %><br>
 	<% end %>
 
 	<div id="unhappy_title">
-		<br><p>When & Where:</p>
+		<br><p>Attending:</p>
 	</div>
-
-	<%= @event.date.strftime("%v") %>	
-	<%= @event.time.strftime("%I:%M %p") %><br>
-	<%= @event.location %>
+	<p id="number-attending"><%= @event.users.size %></p>
 
 	<div id="unhappy_title">
-		<br><p>Tags:</p>
+		<p>Tags:</p>
 	</div>
 	<ul>
 		<% @event.tags.each do |tag| %>
@@ -46,15 +43,19 @@
 
 <div class="col-md-6">
 	<div id="unhappy_title">
+		<br><p>When & Where:</p>
+	</div>
+
+	<%= @event.date.strftime("%v") %>	
+	<%= @event.time.strftime("%I:%M %p") %>
+	&ndash;
+	<%= @event.endtime.strftime("%I:%M %p") %><br>
+	<%= @event.location %>
+
+	<div id="unhappy_title">
 		<br><p>Description:</p>
 	</div>
 
 	<%= @event.description %>
-
-	<div id="unhappy_title">
-		<br><p>Attending:</p>
-	</div>
-
-	<p id="number-attending"><%= @event.users.size %></p>
 
 </div>
