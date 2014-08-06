@@ -11,45 +11,33 @@
 	width: 100%;
 	height: 100%;
 }
-/*
-#brighten:hover {
-	background-image: url('townships.jpg');
-    width: 100%;
-    height: 100%;
-    background-repeat: none;
-    left: 10%;
-    top: 10%;
-    z-index: 100;
-}*/
 
 #description {
   	color: white;
 	font-size: 30px;
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   	position: fixed;
 	top: 32%;
 	left: 35%;
 	z-index: 1;
 	width: 30%;
-	/*height: 23px;*/
 	text-align: center;
 }
 
 #brighten {
 	font-style: bold;
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-family: Bradley Hand ITC;
 	position: fixed;
 	left: 43%;
 	width: 15%;
-
 	font-style: italic;
 	font-size: 30px;
 }
 
-#home_buttons {
+/*#home_buttons {
 	text-align: center;
 	z-index: 3;
-}
+}*/
 
 #sign_form {
 	text-align: right;
@@ -63,18 +51,23 @@
 	margin-top: 4%;
 }
 
-#mandela {
-	text-align: center;
-	margin-top: 52%;
-	font-size: 20px;
-	font-style: italic;
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-	/*background-color: rgba(100, 100, 100, 0.6);
-	color: white;*/
+.quote {
+	position: relative;
+	top: 50%;
 }
 
-#no_account {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+#mandela {
+	font-size: 24px;
+	font-style: italic;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	position: fixed;
+	left: 0;
+	top: 86%;
+	text-align: center;
+	background-color: black;
+	color: white;
+	width: 100%;
+	vertical-align: center;
 }
 
 #profile_picture_field {
