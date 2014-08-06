@@ -5,8 +5,15 @@ class Event < ActiveRecord::Base
 	has_many :taggings, as: :taggable, dependent: :destroy
 	has_many :tags, through: :taggings
 
-  paginates_per 5
+  	paginates_per 5
 
+  	validates :name, presence: true
+  	validates :location, presence: true
+  	validates :description, presence: true
+  	validates :event_email, presence: true
+  	validates :date, presence: true
+  	validates :time, presence: true
+  	validates :endtime, presence: true
 
 	def get_att_id(user)
 		self.attendance_confirmations.find_by(user_id: user.id).id

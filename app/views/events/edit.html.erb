@@ -1,3 +1,13 @@
+<% if @event.errors.any? %>
+  <div class="errors">
+    Your event could not be updated:
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%=message%></li>
+      <% end %>
+    </ul>
+<% end %>
+
 <div id="all_text">
   <div id="new_event_title">
     <p>Edit event: </p>
@@ -33,7 +43,7 @@
       <div class="field">
         <br><%= f.label :event_email %><br>
         <%= f.email_field :event_email %>
-      </div>
+      </div><br>
   </div>
 
   <div class="col-md-6">
