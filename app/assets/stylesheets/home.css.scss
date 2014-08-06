@@ -14,14 +14,24 @@
 
 #description {
   	color: white;
-	font-size: 25px;
+	font-size: 30px;
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   	position: fixed;
 	top: 5%;
 	left: 5%;
 	z-index: 1;
-	width: 100%;
+	width: 30%;
 	height: 23px;
+}
+
+#brighten {
+	font-style: bold;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	position: fixed;
+	left: 8%;
+	width: 30%;
+	font-style: italic;
+	font-size: 30px;
 }
 
 #home_buttons {
@@ -29,13 +39,7 @@
 	z-index: 3;
 }
 
-.btn-xlarge {
-	width: 20%;
-	height: 20%;
-}
-
 #sign_form {
-	/*text-align: center;*/
 	text-align: right;
 }
 
@@ -49,17 +53,12 @@
 
 #mandela {
 	text-align: center;
-	margin-top: 51%;
+	margin-top: 52%;
 	font-size: 20px;
 	font-style: italic;
 	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-	/*background-color: white;*/
-}
-
-#brighten {
-	font-style: bold;
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
-	left: 25%;
+	/*background-color: rgba(100, 100, 100, 0.6);
+	color: white;*/
 }
 
 #no_account {
@@ -70,4 +69,10 @@
 	margin: 0 auto;
 	text-align: center;
 	padding-left: 25%;
+}
+
+#sign_title {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 25px;
+	font-style: bold;
 }
