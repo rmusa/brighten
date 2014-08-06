@@ -12,6 +12,12 @@ class Organization < ActiveRecord::Base
   validates_attachment_content_type :picture, 
     :content_type => /\Aimage\/.*\Z/
 
+  validates :name, presence: true
+  validates :phone, presence: true
+  validates :email, presence: true
+  validates :description, presence: true
+  validates :website, presence: true
+  validates :address, presence: true
 
   def self.search(params)
     result = Organization.all

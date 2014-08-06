@@ -14,14 +14,16 @@ class OrganizationsController < ApplicationController
 
 	def create
 		@organization = Organization.create(organization_params.merge({user_id: current_user.id}))
-		
-		if params[:tag_names].present?
-			params[:tag_names].each do |name|
-				Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @organization)
-			end
-	  end
-
-    redirect_to organization_path(@organization.id)
+		if @organization.save
+			if params[:tag_names].present?
+				params[:tag_names].each do |name|
+					Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @organization)
+				end
+		  	end
+	    	redirect_to organization_path(@organization.id)
+	    else
+	    	render :new
+	    end
 	end
 
 	def edit
@@ -31,12 +33,15 @@ class OrganizationsController < ApplicationController
 	def update
 		@organization = Organization.find(params[:id])
 		@organization.update(organization_params)
-		@organization.taggings.destroy_all
-		params[:tag_names].each do |name|
-			Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @organization)
+		if @organization.update(organization_params)
+			@organization.taggings.destroy_all
+			params[:tag_names].each do |name|
+				Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @organization)
+			end
+			redirect_to organization_path(@organization)
+		else
+			render :edit
 		end
-
-		redirect_to organization_path(@organization)
 	end
 
 	def destroy

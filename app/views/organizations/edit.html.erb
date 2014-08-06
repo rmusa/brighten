@@ -1,3 +1,13 @@
+<% if @organization.errors.any? %>
+  <div class="errors">
+    Your organization could not be updated:
+    <ul>
+      <% @organization.errors.full_messages.each do |message| %>
+        <li><%=message%></li>
+      <% end %>
+    </ul>
+<% end %>
+
 <div id="all_text">
   <div id="new_event_title">
     <p>Edit organization: </p>
@@ -32,7 +42,7 @@
       <div class="field">
         <br><%= f.label :address %><br>
         <%= f.text_field :address %>
-      </div>
+      </div><br>
   </div>
 
   <div class="col-md-6">

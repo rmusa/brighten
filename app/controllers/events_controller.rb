@@ -13,14 +13,17 @@ class EventsController < ApplicationController
 	end
 
 	def create
-	  @event = Event.create(event_params.merge({organization_id: params[:organization_id]}))
-
-	  if params[:tag_names].present?
-		  params[:tag_names].each do |name|
-				Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
-			end
-	  end
-    redirect_to event_path(@event)
+	  	@event = Event.create(event_params.merge({organization_id: params[:organization_id]}))
+	  	if @event.save
+		  	if params[:tag_names].present?
+			  	params[:tag_names].each do |name|
+					Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
+				end
+		  	end
+	    	redirect_to event_path(@event)
+	    else
+	    	render :new
+	    end
 	end
 
 	def edit
@@ -30,14 +33,18 @@ class EventsController < ApplicationController
 
 	def update
 		@event = Event.find(params[:id])
-		if current_user == @event.organization.owner
-			@event.update(event_params)
-			@event.taggings.destroy_all
-			params[:tag_names].each do |name|
-				Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
-			end
-	  end
-		redirect_to event_path(@event)
+		if @event.update(event_params)
+			if current_user == @event.organization.owner
+				@event.update(event_params)
+				@event.taggings.destroy_all
+				params[:tag_names].each do |name|
+					Tagging.create(tag_id: Tag.find_by(name: name).id, taggable: @event)
+				end
+		  	end
+			redirect_to event_path(@event)
+		else
+			render :edit
+		end
 	end
 
 	def destroy
