@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
 	has_many :users, through: :attendance_confirmations
 	has_many :taggings, as: :taggable, dependent: :destroy
 	has_many :tags, through: :taggings
+	has_many :comments, dependent: :destroy
 
   	paginates_per 5
 

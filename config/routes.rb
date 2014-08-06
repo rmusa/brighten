@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :attendance_confirmations, only: [:create, :destroy]
 
+  resources :comments, only: [:create, :destroy]
+
   # root "static#home", as: :home
 
   devise_scope :user do

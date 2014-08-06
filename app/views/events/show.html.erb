@@ -59,3 +59,15 @@
 	<%= @event.description %>
 
 </div>
+
+<%= form_for @new_comment do |f| %>
+  <%= f.label :content, "Add a comment:" %>
+  <%= f.text_field :content %>
+  <%= f.hidden_field :event_id, :value => @event.id %>
+<% end %>
+
+
+<ul><% @event.comments.each do |comment| %>
+	<li><%= comment.user.name %>
+		<%= comment.content %></li>
+	<% end %></ul>

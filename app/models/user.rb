@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :attendance_confirmations, dependent: :destroy
   has_many :events, through: :attendance_confirmations
   has_many :organizations, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_attached_file :profile_picture, 
     :styles => { :medium => "300x300!", :thumb => "140x140!" }, 
