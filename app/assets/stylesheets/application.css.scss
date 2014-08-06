@@ -33,7 +33,7 @@ ul {
 	background-color: #E2F4FF;
 }
 
-#event-list {
+#event-list, #tag-list {
 	padding-left: 0px;
 }
 
@@ -41,3 +41,16 @@ ul {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.75em;
 }
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	background-color: #C7E6FF;
+}
+
+.navbar .nav > li.dropdown.open.active > a:hover, 
+.navbar .nav > li.dropdown.open > a {
+	background-color: #C7E6FF;
+}
+
+
