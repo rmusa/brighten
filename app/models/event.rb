@@ -25,6 +25,12 @@ class Event < ActiveRecord::Base
 			start_date = Date.parse(params[:start_date])
 			end_date = Date.parse(params[:end_date])
 			result = result & self.where(date: start_date..end_date)
+		elsif params[:start_date].present?
+			start_date = Date.parse(params[:start_date])
+			result = result & self.where(date: start_date..100.years.from_now)
+		elsif params[:end_date].present?
+			end_date = Date.parse(params[:end_date])
+			result = result & self.where(date: 100.years.ago..end_date)
 		end
     result = result & self.where("name LIKE ?", "%#{params[:q]}%") if params[:q].present?
     result = result & Tag.find_tagged_events(params[:tag]) if params[:tag].present?
