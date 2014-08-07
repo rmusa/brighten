@@ -34,11 +34,15 @@
 #brighten {
 	font-style: bold;
 	font-family: 'Josefin Sans', sans-serif;
-	color: white;
+	color: rgba(255, 255, 255, 0.8);
 	position: fixed;
 	top: 21%;
 	left: 23%;
 	font-size: 200px;
+}
+
+#brighten:hover {
+	color: white;
 }
 
 /*#home_buttons {
@@ -66,13 +70,13 @@
 #hover-text {
 	font-family: 'Josefin Sans', sans-serif;
 	color: white;
-	font-style: bold;
+/*	font-style: bold;
 	font-family: 'Josefin Sans', sans-serif;
 	color: white;
 	position: fixed;
 	top: 21%;
 	left: 23%;
-	font-size: 75px;
+	font-size: 75px;*/
 }
 
 #mandela {

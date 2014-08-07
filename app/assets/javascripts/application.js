@@ -35,6 +35,10 @@ $(function() {
 	$("#hover-text").hide();
 });
 
+$(function() {
+	$("#brighten").hide();
+});
+
 // $(function() {
 // 		$("#brighten").mouseenter(function() {
 // 		console.log("Mouse Entered");
@@ -47,19 +51,19 @@ $(function() {
 // 	});
 // });
 
-$(function () {
-	$("#brighten").mouseenter(function() {
-		$("#brighten").hide();
-		$("#hover-text").show();
-	})
-});
+// $(function () {
+// 	$("#brighten").mouseenter(function() {
+// 		$("#brighten").hide();
+// 		$("#hover-text").show();
+// 	})
+// });
 
-$(function () {
-	$("#hover-text").mouseleave(function() {
-		$("#hover-text").hide();
-		$("#brighten").show();
-	})
-});
+// $(function () {
+// 	$("#hover-text").mouseleave(function() {
+// 		$("#hover-text").hide();
+// 		$("#brighten").show();
+// 	})
+// });
 
 // $(function() {
 // 	$('#brighten').hover(function() {
