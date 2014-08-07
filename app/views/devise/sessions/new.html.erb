@@ -1,35 +1,39 @@
 <div id="sign_form">
-		<br><%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-inline"}) do |f| %>
-		<div class='form-group'>
-			<div class='input-group'>
-				<%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
-			</div>
+	<br><%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-inline"}) do |f| %>
+	<div class='form-group'>
+		<div class='input-group'>
+			<%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
 		</div>
-		<div class='form-group'>
-			<div class='input-group'>
-				<%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
-			</div>
+	</div>
+	<div class='form-group'>
+		<div class='input-group'>
+			<%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
 		</div>
-		<div class='form-group'>
-			<div class='input-group'>
-				<%= f.submit "Sign In", class: "btn btn-large btn-default"%>
-			</div>
+	</div>
+	<div class='form-group'>
+		<div class='input-group'>
+			<%= f.submit "Sign In", class: "btn btn-large btn-default"%>
 		</div>
-		
-		<div class='form-group'>
-			<%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-large btn-default", method: "get" %>
-		</div>
+	</div>
+	
+	<div class='form-group'>
+		<%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-large btn-default", method: "get" %>
+	</div>
 
-		<% end %>
+	<% end %>
 </div>
+
 <div id="mandela">
-	<footer><br><p class="quote">&ldquo;It always seems impossible until it&rsquo;s done.&rdquo; &ndash; Nelson Mandela</p><br></footer>
+	<!-- <footer><br><p class="quote">&ldquo;It always seems impossible until it&rsquo;s done.&rdquo; &ndash; Nelson Mandela</p><br></footer> -->
+	<footer><br><p id="quote">&ldquo;It always seems impossible until it&rsquo;s done.&rdquo; &ndash; Nelson Mandela</p><br></footer>
 </div>
+
 <div id="first-sentence">
 	<p>why not take the time to</p>
 </div>
-	<div id="brighten">
-		<p>brighten</p>
-	</div>
-	<div id="second-sentence"><p>someone's day?</p>
+
+<div id="brighten">
+	<p>brighten</p>
 </div>
+
+<div id="second-sentence"><p>someone's day?</p></div>
