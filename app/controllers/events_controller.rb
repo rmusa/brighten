@@ -8,11 +8,6 @@ class EventsController < ApplicationController
 		@new_comment = Comment.new
 		@comments = Kaminari.paginate_array(Event.find(params[:id]).comments.reverse).page(params[:page]).per(5)
 		@event = Event.find(params[:id])
-
-		if request.xhr?
-			render :show, layout: false
-		end
-
 	end
 
 	def new
