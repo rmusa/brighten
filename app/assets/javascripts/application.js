@@ -32,14 +32,40 @@
 // });
 
 $(function() {
-	$("#hover-text").hide();
+	$(".hover-text").hide();
 });
 
+var toggled = false;
 $(function() {
-	$("#brighten").click(function() {
-		//$(this).
+	$("#brighten").click(
+	  function() {
+  		if (toggled) {
+				$(this).animate( {'margin-top' : '+=130px'} );
+				$('#first-sentence').fadeIn();
+				$('#second-sentence').fadeIn();
+				$(".hover-text").fadeOut();
+				toggled = false;
+			} else {
+				$(this).animate( {'margin-top' : '-=130px'} );
+				$('#first-sentence').fadeOut();
+				$('#second-sentence').fadeOut();
+				$(".hover-text").fadeIn();
+				toggled = true;
+			}
 	});
 });
+
+
+// $(function() {
+// 	$("#brighten").toggle(
+// 		function() {
+// 		  $(this).animate({
+// 			  'margin-top' : '-=30px'
+// 		  })
+// 	}), function() {
+// 		'margin-top' : '+=30px'
+// 	}
+// );
 
 // $(function() {
 // 		$("#brighten").mouseenter(function() {

@@ -13,12 +13,12 @@
 }
 
 #first-sentence, #second-sentence {
-  	color: white;
+  color: white;
 	font-size: 30px;
 	font-family: 'Josefin Sans', sans-serif;
-  	position: fixed;
-	top: 17%;
-	left: 25%;
+  position: fixed;
+	top: 18%;
+	left: 24%;
 	z-index: 1;
 	width: 30%;
 	text-align: center;
@@ -26,7 +26,7 @@
 
 #second-sentence {
 	top: 55%;
-	left: 45%;
+	left: 47%;
 	z-index: 1;
 	width: 30%;
 }
@@ -34,12 +34,11 @@
 #brighten {
 	font-style: bold;
 	font-family: 'Josefin Sans', sans-serif;
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(255, 255, 255, 0.7);
 	position: fixed;
 	top: 21%;
-	left: 23%;
+	left: 25%;
 	font-size: 200px;
-	color: white;
 }
 
 #brighten:hover {
@@ -68,9 +67,11 @@
 	top: 50%;
 }
 
-#hover-text {
+#hover-text-1, #hover-text-2, #hover-text-3, {
 	font-family: 'Josefin Sans', sans-serif;
 	color: white;
+	font-size: 30px;
+	position: fixed;
 /*	font-style: bold;
 	font-family: 'Josefin Sans', sans-serif;
 	color: white;
@@ -79,6 +80,22 @@
 	left: 23%;
 	font-size: 75px;*/
 }
+
+#hover-text-1 {
+  left: 21%;
+  top: 40%;
+}
+
+#hover-text-2 {
+	left: 27%;
+	top: 50%;
+}
+
+#hover-text-3 {
+	left: 30%;
+	top: 60%;
+}
+
 
 #mandela {
 	font-size: 24px;
