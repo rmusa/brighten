@@ -36,7 +36,7 @@
 	<div id="unhappy_title">
 		<p>Tags:</p>
 	</div>
-	<ul id="tag-list">
+	<ul class="tag-list">
 		<% @event.tags.each do |tag| %>
 		  <li><%= tag.name %></li>
 		<% end %>
@@ -77,10 +77,7 @@
 		<% end %><br>
 
 		<div id="comment_list">
-			<% @comments.each do |comment| %>
-				<div id="comment_name"><%= comment.user.name %>:<br></div>
-				<div id="comment_content"><%= comment.content %><br></div><br>
-			<% end %>
+		  <%= render 'shared/comments' %>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,4 @@
+<% @comments.each do |comment| %>
+	<div id="comment_name"><%= comment.user.name %>:<br></div>
+	<div id="comment_content"><%= comment.content %><br></div><br>
+<% end %>
