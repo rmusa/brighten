@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   devise_for :users
   # clean up, should only have restful actions that are required
   #resources :users, :only => [:show]

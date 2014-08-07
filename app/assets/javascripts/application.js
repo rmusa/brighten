@@ -16,3 +16,20 @@
 //= require turbolinks
 //= require_tree .
 
+$(function() {
+  // hook up the pagination links to refresh projects
+  $('.pagination a').click(function() {
+  	// console.log(this.href);
+    $.get(
+      this.href,
+      null, // {"q": "hello"}
+      function(data) {
+      	console.log(data);
+        $('#comment_list').html(data);
+      },
+      'html'
+    );
+
+    return false;
+  });
+});
