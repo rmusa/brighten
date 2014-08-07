@@ -1,3 +1,13 @@
+<% if resource.errors.any? %>
+  <div class="errors">
+    Your profile could not be saved:
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%=message%></li>
+      <% end %>
+    </ul>
+<% end %>
+
 <div id="new_event_title">
 <h2>Edit User</h2>
 </div>
@@ -5,11 +15,11 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div><br>
-
   <div><%= f.label :name %><br />
   <%= f.text_field :name %></div><br>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div><br>
 
   <div>
     <%= f.label :profile_picture %>

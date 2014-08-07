@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :profile_picture, 
     :content_type => /\Aimage\/.*\Z/
 
+  validates :name, presence: true
+
   def get_organizing_events
     events = []
     self.organizations.each do |organization|
