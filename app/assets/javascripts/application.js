@@ -36,7 +36,9 @@ $(function() {
 });
 
 $(function() {
-	$("#brighten").hide();
+	$("#brighten").click(function() {
+		//$(this).
+	});
 });
 
 // $(function() {

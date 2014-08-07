@@ -13,11 +13,11 @@
 }
 
 #first-sentence, #second-sentence {
-  color: white;
+  	color: white;
 	font-size: 30px;
 	font-family: 'Josefin Sans', sans-serif;
-  position: fixed;
-	top: 18%;
+  	position: fixed;
+	top: 17%;
 	left: 25%;
 	z-index: 1;
 	width: 30%;
@@ -39,6 +39,7 @@
 	top: 21%;
 	left: 23%;
 	font-size: 200px;
+	color: white;
 }
 
 #brighten:hover {
@@ -62,7 +63,7 @@
 	margin-top: 4%;
 }
 
-.quote {
+#quote {
 	position: relative;
 	top: 50%;
 }
