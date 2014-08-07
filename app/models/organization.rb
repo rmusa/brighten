@@ -22,7 +22,7 @@ class Organization < ActiveRecord::Base
   def self.search(params)
     result = Organization.all
     result = result & Tag.find_tagged_organizations(params[:tag]) if params[:tag].present?
-    result = result & self.where("name LIKE ?", "%#{params[:q]}%") if params[:q].present?
+    result = result & self.where("lower(name) LIKE ?", "%#{params[:q].downcase}%") if params[:q].present?
     result
   end
 
