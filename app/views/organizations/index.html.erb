@@ -2,7 +2,10 @@
   <%= render 'shared/search_organizations' %>
 <% end %>
 
+<%= pluralize(@organizations.total_count, "search result") %> 
+
 <ul>
+	<br>
 	<% @organizations.each do |organization| %>
 	<li>
 		<div class="media">

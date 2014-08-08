@@ -1,5 +1,5 @@
 <%= form_tag events_path, method: :get do %>
-	<%= select_tag :tag, options_for_select(Tag.all.pluck(:name)), prompt: "Search by tag"%> <br>
+	<%= select_tag :tag, options_for_select(Tag.all.pluck(:name), params[:tag]), prompt: "Search by tag" %> <br>
 	<br><%= text_field_tag :q, params[:q], placeholder: "Search by name" %> <br>
 	<div class="form-group">
 		<br><label for="input-start-date">Start date</label>
