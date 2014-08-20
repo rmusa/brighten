@@ -1,7 +1,7 @@
 class OrganizationsController < ApplicationController
 
 	def index
-		@organizations = Kaminari.paginate_array(Organization.search(params)).page(params[:page]).per(5)
+		@organizations = Kaminari.paginate_array(Organization.search(params).reverse).page(params[:page]).per(5)
 	end
 
 	def show

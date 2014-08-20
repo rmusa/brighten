@@ -1,4 +1,6 @@
   Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
   # clean up, should only have restful actions that are required
   #resources :users, :only => [:show]
