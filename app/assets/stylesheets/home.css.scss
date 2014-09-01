@@ -50,18 +50,7 @@
 	z-index: 3;
 }*/
 
-#sign_form {
-	text-align: right;
-}
 
-#sign_up_form {
-	background-color: rgba(255,255,255, 0.7);
-	width: 28%;
-	margin: auto;
-	text-align: center;
-	margin-top: 4%;
-	z-index: 500;
-}
 
 #quote {
 	position: relative;
@@ -122,4 +111,30 @@
 	font-family: "Helvetica Neue", sans-serif;
 	font-size: 25px;
 	font-style: bold;
+}
+
+#sign_form {
+	text-align: right;
+}
+
+#why_signup {
+	background-color: rgba(255, 255, 255, 0.5);
+	font-family: 'Josefin Sans', sans-serif;
+	/*position: fixed;*/
+	font-size: 24px;
+	color: black;
+/*	margin-left: 20%;
+	margin-top: 20%;*/
+	z-index: 400;
+}
+
+#sign_up_form {
+	background-color: rgba(255,255,255, 0.7);
+	width: 28%;
+	/*margin: auto;*/
+	text-align: left;
+	margin-top: 4%;
+	/*margin-left: 70%;*/
+	z-index: 500;
+	color: white;
 }
