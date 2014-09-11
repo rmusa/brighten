@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :attendance_confirmations, dependent: :destroy
-  has_many :events, through: :attendance_confirmations
-  has_many :organizations, dependent: :destroy
+  has_many :events, through: :attendance_confirmations, dependent: :destroy
+  has_many :organizations, dependent: :destroy, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   has_attached_file :profile_picture, 
