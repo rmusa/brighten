@@ -13,10 +13,10 @@
 }
 
 #first-sentence, #second-sentence {
-  color: white;
+  	color: white;
 	font-size: 30px;
 	font-family: 'Josefin Sans', sans-serif;
-  position: fixed;
+  	position: fixed;
 	top: 18%;
 	left: 24%;
 	z-index: 1;
@@ -41,17 +41,24 @@
 	font-size: 200px;
 }
 
+#brighten a:link {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+
+/* visited link */
+#brighten a:visited {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+
+#brighten a:hover {
+  color: white;
+}
+
 #brighten:hover {
 	color: white;
 }
-
-/*#home_buttons {
-	text-align: center;
-	z-index: 3;
-}*/
-
-
-
 #quote {
 	position: relative;
 	top: 50%;
@@ -62,13 +69,6 @@
 	color: white;
 	font-size: 30px;
 	position: fixed;
-/*	font-style: bold;
-	font-family: 'Josefin Sans', sans-serif;
-	color: white;
-	position: fixed;
-	top: 21%;
-	left: 23%;
-	font-size: 75px;*/
 }
 
 #hover-text-1 {
@@ -85,7 +85,6 @@
 	left: 30%;
 	top: 60%;
 }
-
 
 #mandela {
 	font-size: 24px;
@@ -104,13 +103,14 @@
 #profile_picture_field {
 	margin: 0 auto;
 	text-align: center;
-	padding-left: 25%;
+	padding-left: 43%;
 }
 
 #sign_title {
 	font-family: "Helvetica Neue", sans-serif;
 	font-size: 25px;
 	font-style: bold;
+	color: white;
 }
 
 #sign_form {
@@ -118,23 +118,16 @@
 }
 
 #why_signup {
-	background-color: rgba(255, 255, 255, 0.5);
+	/*background-color: rgba(255, 255, 255, 0.5);*/
 	font-family: 'Josefin Sans', sans-serif;
-	/*position: fixed;*/
 	font-size: 24px;
-	color: black;
-/*	margin-left: 20%;
-	margin-top: 20%;*/
-	z-index: 400;
+	color: white;
+	padding-left: 40%;
+	text-align: center;
 }
 
 #sign_up_form {
-	background-color: rgba(255,255,255, 0.7);
-	width: 28%;
-	/*margin: auto;*/
-	text-align: left;
 	margin-top: 4%;
-	/*margin-left: 70%;*/
-	z-index: 500;
 	color: white;
+	text-align: center;
 }
