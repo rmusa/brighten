@@ -13,5 +13,3 @@ class StaticController < ApplicationController
 	end
 
 end
-
-#0060FF - dark blue

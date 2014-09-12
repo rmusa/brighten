@@ -1,4 +1,10 @@
+<!-- <table id="sign_up_table">
+
+
+<td>
+<br><br> -->
 <div id="sign_up_form">
+
 
   <div id="sign_title">
     <br><p>Sign up</p>
@@ -7,11 +13,13 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <div><%= f.label :name %><br />
-    <%= f.text_field :name %></div>
+    <div><%= f.text_field :name, :placeholder => "Name"  %></div><br>
 
-    <div><%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %></div>
+    <div><%= f.email_field :email, autofocus: true, :placeholder => "Email"  %></div><br>
+
+    <div><%= f.password_field :password, autocomplete: "off", :placeholder => "Password" %></div><br>
+
+    <div><%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Password Confirmation" %></div><br>
 
     <div>
       <%= f.label :profile_picture %>
@@ -20,18 +28,26 @@
       </div>
     </div>
 
-    <div><%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %></div>
-
-    <div><%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
     <div><br><%= f.submit "Sign up", class: "btn btn-large btn-primary"%></div>
-  <% end %>
+  <% end %><br>
 
   <%= render "devise/shared/links" %><br>
 
 </div>
+<!-- </td>
+
+<td>
+<br><br><br><br><br><br><br>
+<div id="why_signup">
+  <p>Brighten allows volunteers to find community service events in Cape Town. Whether you are visiting or residing, find some extra time to brighten the mother city! Brighten's users can vary from organizations to people who want to make a difference, because everyone can organize community service events. After signing up, search for an event by interest, date, or keyword. Create an organization and start hosting events! </p>
+</div>
+</td>
+
+</table> -->
+
+<!-- we need to delete old events -->
+
 <div id="mandela">
   <footer><br><p class="quote">&ldquo;It always seems impossible until it&rsquo;s done.&rdquo; &ndash; Nelson Mandela</p><br></footer>
 </div>
+
